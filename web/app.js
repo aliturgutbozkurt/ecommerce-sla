@@ -295,6 +295,7 @@ const i18n = {
     tab_contracts: 'Contract Documents',
     tab_incident: 'Incident Severity & MTTR',
     tab_arch: 'System Architecture',
+    tab_guide: 'Junior Guide',
     calc_title: 'Interactive Monthly SLA & Service Credit Calculator',
     calc_desc: 'Calculate downtime minutes, actual availability %, and financial service credit rebates according to Schedule B.',
     peak_mode_label: 'Campaign Peak (Cyber Week 2x):',
@@ -319,7 +320,9 @@ const i18n = {
     rca_box_title: 'Root Cause Analysis (RCA) Protocol',
     rca_box_desc: 'For all P1 incidents and major P2 incidents, Provider must deliver a blameless 5-Whys RCA document within 5 business days, including chronological timeline, root cause, and Corrective and Preventative Actions (CAPA).',
     arch_title: 'OmniStore SaaS Microservices Topology',
-    arch_desc: 'High-throughput, event-driven commerce architecture designed for 100,000 requests/second.'
+    arch_desc: 'High-throughput, event-driven commerce architecture designed for 100,000 requests/second.',
+    guide_title: "🧭 Junior Software Engineer's Plain-English Contract Guide",
+    guide_desc: 'Practical, real-world explanations of how legal contracts protect your architecture, salary, and sanity.'
   },
   tr: {
     view_github: 'GitHub Projesi',
@@ -334,6 +337,7 @@ const i18n = {
     tab_contracts: 'Sözleşme Belgeleri',
     tab_incident: 'Arıza Seviyeleri ve MTTR',
     tab_arch: 'Sistem Mimarisi',
+    tab_guide: 'Mühendis Rehberi',
     calc_title: 'İnteraktif Aylık SLA ve Hizmet Kredisi Hesaplayıcı',
     calc_desc: 'Ek B uyarınca kesinti süresi, gerçekleşen erişilebilirlik yüzdesi ve fatura ceza/mahsup tutarını hesaplayın.',
     peak_mode_label: 'Kampanya Zirvesi (Efsane Cuma 2x):',
@@ -358,7 +362,9 @@ const i18n = {
     rca_box_title: 'Kök Neden Analizi (RCA) Protokolü',
     rca_box_desc: 'Tüm P1 ve majör P2 arızalarında Hizmet Sağlayıcı; 5 iş günü içinde kronolojik akışı, 5-Neden analizini ve Düzeltici/Önleyici Eylemleri (CAPA) içeren suçlayıcı olmayan resmi RCA raporu sunar.',
     arch_title: 'OmniStore SaaS Mikroservis Topolojisi',
-    arch_desc: 'Saniyede 100.000 istek için tasarlanmış yüksek hacimli, olay güdümlü (event-driven) e-ticaret mimarisi.'
+    arch_desc: 'Saniyede 100.000 istek için tasarlanmış yüksek hacimli, olay güdümlü (event-driven) e-ticaret mimarisi.',
+    guide_title: "🧭 Acemi Yazılımcının Sözleşmeler ve SLA El Kitabı",
+    guide_desc: '"Kod çalışıyor abi işte" demekten profesyonel sözleşme bilincine geçiş; pratik tavsiyeler ve gerçek tuzaklar.'
   }
 };
 
@@ -377,6 +383,7 @@ function setLanguage(lang) {
   });
 
   renderContracts();
+  renderGuides();
   calculateSLA();
 }
 
@@ -390,7 +397,8 @@ function switchTab(tabId) {
     calculator: 'tabBtnCalc',
     contracts: 'tabBtnDocs',
     incidents: 'tabBtnInc',
-    architecture: 'tabBtnArch'
+    architecture: 'tabBtnArch',
+    guide: 'tabBtnGuide'
   };
   if (btnMap[tabId]) {
     document.getElementById(btnMap[tabId]).classList.add('active');
@@ -579,8 +587,181 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModalDirect();
 });
 
+// Guide Articles Database
+const guideArticles = [
+  {
+    num: '00',
+    en: {
+      title: 'Why Contracts Exist & Which Document Trumps Which',
+      file: '../muhendis-rehberi/00_GIRIS_VE_SOZLESMELER_NEDEN_VAR.md',
+      desc: 'Why "the code works" is not enough, document hierarchy (DPA > MSA > SOW > SLA), and avoiding legal traps.'
+    },
+    tr: {
+      title: 'Sözleşmeler Neden Var ve Hangi Belge Kimi Döver?',
+      file: '../muhendis-rehberi/00_GIRIS_VE_SOZLESMELER_NEDEN_VAR.md',
+      desc: '"Kod çalışıyor abi işte" zihniyetinin tehlikeleri, belge hiyerarşisi (DPA > MSA > SOW > SLA) ve çatışma kuralları.'
+    }
+  },
+  {
+    num: '01',
+    en: {
+      title: 'MSA Explained: Is the Code Mine or the Company’s?',
+      file: '../muhendis-rehberi/01_MSA_NEDIR_YAZILIMCIYI_NASIL_BAGLAR.md',
+      desc: 'Background IP vs Custom IP, avoiding GPL license contamination, 12-month liability caps, and gross negligence.'
+    },
+    tr: {
+      title: 'MSA (Ana Sözleşme): Kodum Benim mi Şirketin mi?',
+      file: '../muhendis-rehberi/01_MSA_NEDIR_YAZILIMCIYI_NASIL_BAGLAR.md',
+      desc: 'Fikri mülkiyet (IP), GPL lisans zehirlenmesi, 12 aylık tazminat tavanı (cap) ve ağır kusur halleri.'
+    }
+  },
+  {
+    num: '02',
+    en: {
+      title: 'SOW & Specs: What Does "Done" Really Mean?',
+      file: '../muhendis-rehberi/02_SOW_VE_SARTNAME_KOD_YAZARKEN_NASIL_KULLANILIR.md',
+      desc: 'Scope creep traps, 100K RPS non-functional requirements, N+1 query disasters, and Definition of Done.'
+    },
+    tr: {
+      title: 'SOW ve Şartname: "Bitti" (Done) Ne Demek?',
+      file: '../muhendis-rehberi/02_SOW_VE_SARTNAME_KOD_YAZARKEN_NASIL_KULLANILIR.md',
+      desc: 'Kapsam kayması (Scope Creep) tuzağı, 100K RPS performans şartı, N+1 sorgu problemi ve %85 test kuralı.'
+    }
+  },
+  {
+    num: '03',
+    en: {
+      title: 'SLA, SLO, SLI & Error Budgets: Sleep-Saving Guide',
+      file: '../muhendis-rehberi/03_SLA_SLO_SLI_FARKLARI_VE_HATA_BUTCESI.md',
+      desc: 'Coffee shop analogy, 99.95% vs 99.99% downtime (21.9m vs 4.38m), error budgets, and feature freezes.'
+    },
+    tr: {
+      title: 'SLA, SLO, SLI ve Hata Bütçesi: Uykunu Kurtaracak Rehber',
+      file: '../muhendis-rehberi/03_SLA_SLO_SLI_FARKLARI_VE_HATA_BUTCESI.md',
+      desc: 'Kahve dükkanı analojisi, %99.95 ile %99.99 farkı (21.9 dk vs 4.38 dk), hata bütçesi ve kod dondurma (Freeze).'
+    }
+  },
+  {
+    num: '04',
+    en: {
+      title: 'SaaS Licensing: Avoiding Multi-Tenant Data Leaks',
+      file: '../muhendis-rehberi/04_SAAS_LISANSI_VE_KOTALAR_MANTIKSAL_IZOLASYON.md',
+      desc: 'Preventing cross-tenant leaks with PostgreSQL RLS, rate limiting noisy neighbors, and why data ransom is illegal.'
+    },
+    tr: {
+      title: 'SaaS Lisansı ve Kotalar: Çoklu Kiracıda Veri Karışması Faciası',
+      file: '../muhendis-rehberi/04_SAAS_LISANSI_VE_KOTALAR_MANTIKSAL_IZOLASYON.md',
+      desc: 'PostgreSQL RLS ile müşteri verilerini ayırma, gürültülü komşulara rate limit ve veri rehni yasağı.'
+    }
+  },
+  {
+    num: '05',
+    en: {
+      title: 'GDPR & KVKK: The 4 Big Coding Sins',
+      file: '../muhendis-rehberi/05_KVKK_VE_GDPR_KODLARDA_YAPILAN_BUYUK_HATALAR.md',
+      desc: 'Logging request body with passwords, raw credit card storage, mandatory 48-hour breach report, and right to be forgotten.'
+    },
+    tr: {
+      title: 'KVKK & GDPR: Kod Yazarken Yapılan En Büyük Hatalar',
+      file: '../muhendis-rehberi/05_KVKK_VE_GDPR_KODLARDA_YAPILAN_BUYUK_HATALAR.md',
+      desc: 'Loglara request body basmak, veritabanına ham kart kaydetmek, 48 saatlik ihlal bildirimi ve anonimleştirme.'
+    }
+  },
+  {
+    num: '06',
+    en: {
+      title: 'NDA & Secrets: How Not to Get Fired',
+      file: '../muhendis-rehberi/06_NDA_VE_TICARI_SIRLAR_ACEMI_HATALARI.md',
+      desc: 'Bragging on Medium with architecture diagrams, downloading production DBs to laptops, and leaking .env to GitHub.'
+    },
+    tr: {
+      title: 'NDA ve Gizlilik: İşten Atılmama Rehberi',
+      file: '../muhendis-rehberi/06_NDA_VE_TICARI_SIRLAR_ACEMI_HATALARI.md',
+      desc: 'Medium/LinkedIn’de mimari ifşalamak, canlı veritabanını laptopa indirmek ve Git’e secret pushlamak.'
+    }
+  },
+  {
+    num: '07',
+    en: {
+      title: 'Incident Management: What to Do When P1 Strikes',
+      file: '../muhendis-rehberi/07_ARIZA_YONETIMI_VE_P1_OLAYINDA_NE_YAPILMALI.md',
+      desc: 'P1-P4 triage, on-call etiquette, Incident Commander protocol, rollback first vs debug later, and blameless 5-Whys RCA.'
+    },
+    tr: {
+      title: 'Arıza Yönetimi & Kriz Masası: P1 Çıkınca Ne Yapılmalı?',
+      file: '../muhendis-rehberi/07_ARIZA_YONETIMI_VE_P1_OLAYINDA_NE_YAPILMALI.md',
+      desc: 'P1-P4 farkı, 15 dk ilk yanıt kuralı, kriz masası adabı, önce rollback sonra teşhis ve suçsuz 5-Neden analizi.'
+    }
+  },
+  {
+    num: '08',
+    en: {
+      title: 'UAT Acceptance: Defect Severities & Conditional Sign-Off',
+      file: '../muhendis-rehberi/08_KABUL_TESTLERI_UAT_VE_KOSULLU_KABUL.md',
+      desc: 'Blocker vs Critical vs Minor defects, why UAT unlocks company invoices, and managing the 10-day punch-list.'
+    },
+    tr: {
+      title: 'Kabul Testleri (UAT): Hata Tipleri ve Şartlı Kabul',
+      file: '../muhendis-rehberi/08_KABUL_TESTLERI_UAT_VE_KOSULLU_KABUL.md',
+      desc: 'Sev-1\'den Sev-4\'e hata dereceleri, hakediş ve fatura ilişkisi, şartlı kabul ve eksik listesi (punch-list).'
+    }
+  },
+  {
+    num: '09',
+    en: {
+      title: 'Escrow & DR: What Happens to the Code if We Go Bankrupt?',
+      file: '../muhendis-rehberi/09_ESCROW_KOD_YEDIEMIN_VE_FELAKET_KURTARMA.md',
+      desc: 'The neutral safe deposit box, RPO ≤ 15m (WAL streaming), and RTO ≤ 1h (Terraform automated spin-up).'
+    },
+    tr: {
+      title: 'Escrow ve Felaket Kurtarma: Şirket Batarsa Koda Ne Olur?',
+      file: '../muhendis-rehberi/09_ESCROW_KOD_YEDIEMIN_VE_FELAKET_KURTARMA.md',
+      desc: 'Bağımsız kod kasası (Escrow), RPO ≤ 15 dk (veri kaybı limiti) ve RTO ≤ 1 saat (sistemi ayağa kaldırma hedefi).'
+    }
+  },
+  {
+    num: '10',
+    en: {
+      title: 'Change Orders: The "Quick Addition" Trap ($1,000/Day)',
+      file: '../muhendis-rehberi/10_DEGISIKLIK_YONETIMI_VE_ADAM_GUN_HESABI.md',
+      desc: 'Why man-day rates exist ($750 - $1,200), calculating feature costs, and why you never code before signatures.'
+    },
+    tr: {
+      title: 'Değişiklik Talepleri (Change Order): "Ufak Bir Ekleme" Tuzağı',
+      file: '../muhendis-rehberi/10_DEGISIKLIK_YONETIMI_VE_ADAM_GUN_HESABI.md',
+      desc: 'Adam/gün hesabı ($750-$1.200/gün), "ufak ekleme"nin şirkete maliyeti ve imza olmadan koda başlamama kuralı.'
+    }
+  }
+];
+
+function renderGuides() {
+  const container = document.getElementById('guideCardsGrid');
+  if (!container) return;
+  container.innerHTML = '';
+
+  guideArticles.forEach(item => {
+    const data = item[currentLang];
+    const card = document.createElement('div');
+    card.className = 'guide-card';
+    card.innerHTML = `
+      <div>
+        <span class="guide-number">REHBER #${item.num}</span>
+        <h4>${data.title}</h4>
+        <p>${data.desc}</p>
+      </div>
+      <div class="guide-card-footer">
+        <a href="${data.file}" target="_blank" class="guide-read-link">
+          ${currentLang === 'en' ? 'Read Guide Chapter (.md) →' : 'Rehber Bölümünü Oku (.md) →'}
+        </a>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
   renderContracts();
+  renderGuides();
   calculateSLA();
 });

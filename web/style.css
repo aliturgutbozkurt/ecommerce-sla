@@ -958,6 +958,70 @@ input:checked + .slider:before { transform: translateX(20px); }
   color: #475569;
 }
 
+/* Junior Guide Tab */
+.guide-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+.guide-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+.guide-card:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px -8px rgba(168, 85, 247, 0.25);
+}
+.guide-number {
+  font-family: var(--font-code);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent-purple);
+  background: rgba(168, 85, 247, 0.12);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+.guide-card h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
+}
+.guide-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+.guide-card-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.guide-read-link {
+  font-size: 0.82rem;
+  color: var(--accent-purple);
+  text-decoration: none;
+  font-weight: 600;
+}
+.guide-read-link:hover {
+  text-decoration: underline;
+  color: #c084fc;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .calc-grid {

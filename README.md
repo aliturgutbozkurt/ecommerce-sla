@@ -47,6 +47,24 @@ Bu depo, büyük ölçekli bir e-ticaret kuruluşu ile kurumsal bulut yazılım 
 
 ---
 
+## 🧭 Acemi Yazılımcının Sözleşmeler El Kitabı / Junior Engineer's Guide
+
+Yazılımcılar için özel olarak hazırlanan, hukuk dilinden arındırılmış, pratik ve esprili anlatımlarla sözleşmelerin kod yazarken hayatı ve şirketi nasıl kurtardığını açıklayan **[Mühendis Rehberi](muhendis-rehberi/README.md)** klasörüne mutlaka göz atın!
+
+*   [00. Sözleşmeler Neden Var ve Hangi Belge Kimi Döver?](muhendis-rehberi/00_GIRIS_VE_SOZLESMELER_NEDEN_VAR.md)
+*   [01. MSA: Yazdığım Kod Benim mi Şirketin mi?](muhendis-rehberi/01_MSA_NEDIR_YAZILIMCIYI_NASIL_BAGLAR.md)
+*   [02. SOW & Şartname: Kapsam Kayması ve "Bitti" Tanımı](muhendis-rehberi/02_SOW_VE_SARTNAME_KOD_YAZARKEN_NASIL_KULLANILIR.md)
+*   [03. SLA, SLO, SLI: %99.95 vs %99.99 ve Hata Bütçesi](muhendis-rehberi/03_SLA_SLO_SLI_FARKLARI_VE_HATA_BUTCESI.md)
+*   [04. SaaS Lisansı: Çoklu Kiracıda Veri Karışması Faciası](muhendis-rehberi/04_SAAS_LISANSI_VE_KOTALAR_MANTIKSAL_IZOLASYON.md)
+*   [05. KVKK & GDPR: Loglara Veri Basma ve 48 Saat Kuralı](muhendis-rehberi/05_KVKK_VE_GDPR_KODLARDA_YAPILAN_BUYUK_HATALAR.md)
+*   [06. NDA: GitHub'a Key Pushlamak ve Gizlilik İhlalleri](muhendis-rehberi/06_NDA_VE_TICARI_SIRLAR_ACEMI_HATALARI.md)
+*   [07. Arıza Yönetimi: P1 Çıkınca Ne Yapılır? Suçsuz RCA](muhendis-rehberi/07_ARIZA_YONETIMI_VE_P1_OLAYINDA_NE_YAPILMALI.md)
+*   [08. Kabul Testleri: UAT, Şartlı Kabul ve Punch-List](muhendis-rehberi/08_KABUL_TESTLERI_UAT_VE_KOSULLU_KABUL.md)
+*   [09. Escrow: Şirket Batarsa Koda Ne Olur? RPO/RTO](muhendis-rehberi/09_ESCROW_KOD_YEDIEMIN_VE_FELAKET_KURTARMA.md)
+*   [10. Değişiklik Yönetimi: "Ufak Bir Ekleme" Tuzağı ($1.000/gün)](muhendis-rehberi/10_DEGISIKLIK_YONETIMI_VE_ADAM_GUN_HESABI.md)
+
+---
+
 ## 📐 System Architecture Blueprint / Sistem Mimari Şeması
 
 ```

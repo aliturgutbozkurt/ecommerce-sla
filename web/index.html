@@ -87,6 +87,9 @@
       <button class="tab-btn" onclick="switchTab('architecture')" id="tabBtnArch">
         <span>🏗️</span> <span data-i18n="tab_arch">System Architecture</span>
       </button>
+      <button class="tab-btn" onclick="switchTab('guide')" id="tabBtnGuide">
+        <span>🧭</span> <span data-i18n="tab_guide">Junior Engineer Guide</span>
+      </button>
     </nav>
 
     <!-- TAB 1: SLA Calculator -->
@@ -325,6 +328,18 @@
               <div class="arch-node db-node">OpenSearch 2.14 Cluster</div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: Junior Engineer Guide -->
+    <section id="tab-guide" class="tab-panel">
+      <div class="panel-card">
+        <h3 class="card-title" data-i18n="guide_title">🧭 Junior Software Engineer's Plain-English Contract Guide</h3>
+        <p class="card-desc" data-i18n="guide_desc">Practical, real-world explanations of how legal contracts protect your architecture, salary, and sanity.</p>
+
+        <div class="guide-cards-grid" id="guideCardsGrid">
+          <!-- Rendered dynamically via app.js -->
         </div>
       </div>
     </section>
