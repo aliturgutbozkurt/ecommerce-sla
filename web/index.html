@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniStore SaaS | Enterprise SLA, Legal & Contract Suite</title>
+  <meta name="description" content="Interactive legal contracts, SLA/SLO calculators, and technical specifications for enterprise SaaS and E-Commerce platforms.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Background Glow FX -->
+  <div class="glow-bg glow-1"></div>
+  <div class="glow-bg glow-2"></div>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <span class="logo-icon">⚡</span>
+        <div>
+          <h1 class="logo-title">OmniStore <span>SaaS Contracts</span></h1>
+          <p class="logo-subtitle">ApexRetail × CloudScale Systems Enterprise Framework</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <div class="lang-switch-wrapper">
+          <button id="btnLangEn" class="lang-btn active" onclick="setLanguage('en')">🇬🇧 EN</button>
+          <button id="btnLangTr" class="lang-btn" onclick="setLanguage('tr')">🇹🇷 TR</button>
+        </div>
+        <a href="https://github.com/aliturgutbozkurt/ecommerce-sla" target="_blank" class="github-badge-btn" id="githubRepoLink">
+          <svg class="gh-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span data-i18n="view_github">GitHub Repo</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="badge-pill" data-i18n="hero_badge">Production-Grade SaaS Legal & Technical Architecture</div>
+      <h2 class="hero-heading" data-i18n="hero_title">
+        Enterprise Contracts, SLA & Technical Specifications Suite
+      </h2>
+      <p class="hero-desc" data-i18n="hero_desc">
+        Complete bilingual legal contracts, high-availability SLA/SLO commitments, incident escalation protocols, and microservice technical specifications designed for high-scale e-commerce platforms.
+      </p>
+
+      <div class="hero-stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">99.95%</div>
+          <div class="stat-label" data-i18n="stat_uptime">Standard Monthly Uptime</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">99.99%</div>
+          <div class="stat-label" data-i18n="stat_peak">Black Friday Peak SLA</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">15 min / 60 min</div>
+          <div class="stat-label" data-i18n="stat_p1">P1 Critical MTTA / MTTR</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">100K RPS</div>
+          <div class="stat-label" data-i18n="stat_rps">Peak Throughput Capacity</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Navigation Tabs -->
+  <main class="main-container">
+    <nav class="nav-tabs">
+      <button class="tab-btn active" onclick="switchTab('calculator')" id="tabBtnCalc">
+        <span>🧮</span> <span data-i18n="tab_calculator">SLA Credit Calculator</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('contracts')" id="tabBtnDocs">
+        <span>📜</span> <span data-i18n="tab_contracts">Contract Documents</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('incidents')" id="tabBtnInc">
+        <span>🚨</span> <span data-i18n="tab_incident">Incident Severity & MTTR</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('architecture')" id="tabBtnArch">
+        <span>🏗️</span> <span data-i18n="tab_arch">System Architecture</span>
+      </button>
+    </nav>
+
+    <!-- TAB 1: SLA Calculator -->
+    <section id="tab-calculator" class="tab-panel active">
+      <div class="panel-card calculator-card">
+        <div class="card-header">
+          <div>
+            <h3 class="card-title" data-i18n="calc_title">Interactive Monthly SLA & Service Credit Calculator</h3>
+            <p class="card-desc" data-i18n="calc_desc">Calculate downtime minutes, actual availability %, and financial service credit rebates according to Schedule B.</p>
+          </div>
+          <div class="mode-toggle">
+            <span class="mode-label" data-i18n="peak_mode_label">Campaign Peak (Cyber Week 2x):</span>
+            <label class="switch">
+              <input type="checkbox" id="peakModeCheckbox" onchange="calculateSLA()">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="calc-grid">
+          <!-- Inputs -->
+          <div class="calc-input-pane">
+            <div class="input-group">
+              <label for="monthlyFeeInput" data-i18n="input_fee_label">Monthly SaaS Subscription Fee ($ USD):</label>
+              <div class="input-prefix-wrapper">
+                <span class="currency-symbol">$</span>
+                <input type="number" id="monthlyFeeInput" value="50000" min="1000" step="1000" oninput="calculateSLA()">
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label for="downtimeMinutesInput" data-i18n="input_downtime_label">Total Unscheduled Downtime in Month (Minutes):</label>
+              <div class="range-wrapper">
+                <input type="range" id="downtimeRange" min="0" max="600" value="45" oninput="syncDowntime(this.value)">
+                <input type="number" id="downtimeMinutesInput" value="45" min="0" max="43200" oninput="syncRange(this.value)">
+              </div>
+              <small class="input-hint" data-i18n="calc_hint">Total minutes in a 30-day billing cycle = 43,200 minutes.</small>
+            </div>
+
+            <div class="sla-thresholds-box">
+              <h4 data-i18n="penalty_table_title">Schedule B Penalty Thresholds:</h4>
+              <ul class="threshold-list">
+                <li><span class="dot green"></span> ≥ 99.95%: <strong>0% Credit</strong> (SLA Met)</li>
+                <li><span class="dot yellow"></span> 99.90% - 99.94%: <strong>10% Credit</strong> (20% in Peak)</li>
+                <li><span class="dot orange"></span> 99.50% - 99.89%: <strong>20% Credit</strong> (40% in Peak)</li>
+                <li><span class="dot red"></span> 99.00% - 99.49%: <strong>35% Credit</strong> (70% in Peak)</li>
+                <li><span class="dot purple"></span> &lt; 99.00%: <strong>50% Credit</strong> (100% in Peak + Termination Right)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Live Results Output -->
+          <div class="calc-result-pane">
+            <div class="result-badge-area">
+              <span id="slaStatusBadge" class="status-badge status-breached">SLA BREACHED</span>
+              <span id="periodBadge" class="period-badge">Standard Billing Period</span>
+            </div>
+
+            <div class="metric-readout">
+              <div class="metric-title" data-i18n="metric_uptime">Actual Monthly Uptime</div>
+              <div class="metric-big-value" id="actualUptimeText">99.8958%</div>
+              <div class="metric-sub" id="allowedDowntimeDiff">23.1 minutes over allowable threshold</div>
+            </div>
+
+            <div class="results-summary-table">
+              <div class="result-row">
+                <span data-i18n="res_allowed_downtime">Allowable Downtime (99.95%):</span>
+                <span class="val" id="maxAllowableDowntime">21.90 mins</span>
+              </div>
+              <div class="result-row">
+                <span data-i18n="res_actual_downtime">Recorded Unscheduled Outage:</span>
+                <span class="val highlight" id="recordedDowntimeText">45.00 mins</span>
+              </div>
+              <div class="result-row">
+                <span data-i18n="res_credit_rate">Service Credit Penalty Rate:</span>
+                <span class="val penalty-val" id="creditPercentText">20.00%</span>
+              </div>
+              <div class="result-row total-row">
+                <span data-i18n="res_refund_amount">Invoice Deduction / Credit Refund:</span>
+                <span class="val refund-val" id="refundAmountText">$10,000.00 USD</span>
+              </div>
+            </div>
+
+            <div class="action-box" id="correctiveActionBox">
+              <strong>Mandatory Action Required:</strong>
+              <p id="actionRequiredText">Submit Root Cause Analysis (RCA) and convene senior architecture review within 3 business days.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: Contracts Directory -->
+    <section id="tab-contracts" class="tab-panel">
+      <div class="contracts-header-bar">
+        <div class="search-filter-wrapper">
+          <input type="text" id="contractSearchInput" placeholder="Search contracts, clauses, keywords (e.g. Escrow, MTTR, GDPR, IP)..." oninput="filterContracts()">
+        </div>
+        <div class="category-pills">
+          <button class="cat-pill active" onclick="filterCategory('all', this)" data-i18n="cat_all">All (11)</button>
+          <button class="cat-pill" onclick="filterCategory('legal', this)" data-i18n="cat_legal">Legal Core</button>
+          <button class="cat-pill" onclick="filterCategory('technical', this)" data-i18n="cat_technical">Technical & SOW</button>
+          <button class="cat-pill" onclick="filterCategory('sla', this)" data-i18n="cat_sla">SLA & Operations</button>
+          <button class="cat-pill" onclick="filterCategory('compliance', this)" data-i18n="cat_compliance">Privacy & Escrow</button>
+        </div>
+      </div>
+
+      <div class="contracts-grid" id="contractsGrid">
+        <!-- Rendered dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 3: Incident Severity & MTTR Explorer -->
+    <section id="tab-incidents" class="tab-panel">
+      <div class="panel-card">
+        <h3 class="card-title" data-i18n="inc_title">Incident Severity Classification & On-Call Response Matrix</h3>
+        <p class="card-desc" data-i18n="inc_desc">Schedule F operational incident response timelines, triage criteria, and escalation triggers.</p>
+
+        <div class="severity-cards-grid">
+          <!-- P1 -->
+          <div class="sev-card sev-p1">
+            <div class="sev-header">
+              <span class="sev-tag">P1</span>
+              <h4>P1 - Critical Outage</h4>
+            </div>
+            <div class="sev-timing">
+              <div><strong>MTTA (Acknowledge):</strong> ≤ 15 Minutes (24/7/365)</div>
+              <div><strong>MTTR (Resolution):</strong> ≤ 60 Minutes</div>
+              <div><strong>Cadence:</strong> Every 15 mins in War Room</div>
+            </div>
+            <p class="sev-example"><strong>Triggers:</strong> Complete checkout freeze, catalog inaccessible, database failover hang, verified ransomware or data breach.</p>
+            <div class="sev-action-badge">Instant War Room & Incident Commander</div>
+          </div>
+
+          <!-- P2 -->
+          <div class="sev-card sev-p2">
+            <div class="sev-header">
+              <span class="sev-tag">P2</span>
+              <h4>P2 - Major Degradation</h4>
+            </div>
+            <div class="sev-timing">
+              <div><strong>MTTA:</strong> ≤ 30 Minutes (24/7/365)</div>
+              <div><strong>MTTR:</strong> ≤ 4 Hours</div>
+              <div><strong>Cadence:</strong> Every 60 minutes</div>
+            </div>
+            <p class="sev-example"><strong>Triggers:</strong> Single payment gateway offline (fallback working), search degraded, SAP ERP sync queue backlog > 30 mins.</p>
+            <div class="sev-action-badge">Senior Architect Escalation</div>
+          </div>
+
+          <!-- P3 -->
+          <div class="sev-card sev-p3">
+            <div class="sev-header">
+              <span class="sev-tag">P3</span>
+              <h4>P3 - Minor Impairment</h4>
+            </div>
+            <div class="sev-timing">
+              <div><strong>MTTA:</strong> ≤ 2 Hours (Business Hours)</div>
+              <div><strong>MTTR:</strong> ≤ 24 Hours</div>
+              <div><strong>Cadence:</strong> Daily Ticket Update</div>
+            </div>
+            <p class="sev-example"><strong>Triggers:</strong> Admin CMS reporting timeout, coupon banner cosmetic alignment defect, non-blocking telemetry delay.</p>
+            <div class="sev-action-badge">Sprint Backlog Queue</div>
+          </div>
+
+          <!-- P4 -->
+          <div class="sev-card sev-p4">
+            <div class="sev-header">
+              <span class="sev-tag">P4</span>
+              <h4>P4 - Informational</h4>
+            </div>
+            <div class="sev-timing">
+              <div><strong>MTTA:</strong> ≤ 8 Hours (Business Hours)</div>
+              <div><strong>MTTR:</strong> ≤ 5 Business Days</div>
+              <div><strong>Cadence:</strong> Upon milestone change</div>
+            </div>
+            <p class="sev-example"><strong>Triggers:</strong> Documentation inquiry, cosmetic styling suggestion, minor administrative inquiry.</p>
+            <div class="sev-action-badge">Standard Triage</div>
+          </div>
+        </div>
+
+        <div class="rca-box">
+          <h4 data-i18n="rca_box_title">Root Cause Analysis (RCA) Protocol</h4>
+          <p data-i18n="rca_box_desc">For all P1 incidents and major P2 incidents, Provider must deliver a blameless 5-Whys RCA document within 5 business days, including chronological timeline, root cause, and Corrective and Preventative Actions (CAPA).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: Architecture Topology -->
+    <section id="tab-architecture" class="tab-panel">
+      <div class="panel-card">
+        <h3 class="card-title" data-i18n="arch_title">OmniStore SaaS Microservices Topology</h3>
+        <p class="card-desc" data-i18n="arch_desc">High-throughput, event-driven commerce architecture designed for 100,000 requests/second.</p>
+
+        <div class="arch-visual-container">
+          <div class="arch-layer">
+            <div class="layer-title">Client Layer (Web / iOS / Android / Social Commerce)</div>
+            <div class="arch-boxes">
+              <div class="arch-node">Next.js Headless Web</div>
+              <div class="arch-node">Swift iOS App</div>
+              <div class="arch-node">Kotlin Android App</div>
+              <div class="arch-node">Marketplace Connectors</div>
+            </div>
+          </div>
+
+          <div class="arch-connector">↓ TLS 1.3 HTTPS</div>
+
+          <div class="arch-layer highlight-layer">
+            <div class="layer-title">Edge & API Gateway Layer</div>
+            <div class="arch-boxes">
+              <div class="arch-node accent-node">Cloudflare Edge CDN & WAF</div>
+              <div class="arch-node accent-node">Envoy API Gateway (GraphQL Mesh)</div>
+            </div>
+          </div>
+
+          <div class="arch-connector">↓ gRPC / HTTP 2.0</div>
+
+          <div class="arch-layer">
+            <div class="layer-title">Core Microservices Cluster (Kubernetes / EKS)</div>
+            <div class="arch-boxes">
+              <div class="arch-node service-node">Catalog & PIM Service (Go)</div>
+              <div class="arch-node service-node">Cart & Promotion Engine (Go)</div>
+              <div class="arch-node service-node">Inventory & Redlock (Go)</div>
+              <div class="arch-node service-node">Smart Payment Router (Go)</div>
+              <div class="arch-node service-node">OMS State Machine (Node/TS)</div>
+            </div>
+          </div>
+
+          <div class="arch-connector">↓ Async Events & Persistent I/O</div>
+
+          <div class="arch-layer storage-layer">
+            <div class="layer-title">Data, Streaming & Caching Layer</div>
+            <div class="arch-boxes">
+              <div class="arch-node db-node">Apache Kafka 3.7 Bus</div>
+              <div class="arch-node db-node">Redis Cluster 7.2</div>
+              <div class="arch-node db-node">PostgreSQL 16 (Patroni HA)</div>
+              <div class="arch-node db-node">OpenSearch 2.14 Cluster</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Clause Modal -->
+  <div id="clauseModal" class="modal-backdrop" onclick="closeModal(event)">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h4 id="modalDocTitle">Document Title</h4>
+        <button class="close-btn" onclick="closeModalDirect()">&times;</button>
+      </div>
+      <div class="modal-body" id="modalDocBody">
+        <!-- Content injected here -->
+      </div>
+      <div class="modal-footer">
+        <button class="copy-btn" onclick="copyModalContent()" data-i18n="copy_clause">📋 Copy Clause</button>
+        <a id="modalDirectFileLink" href="#" target="_blank" class="open-file-btn" data-i18n="open_full_file">View Full Markdown File →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <p>© 2026 Ali Turgut Bozkurt. Released under MIT License for architectural and legal drafting reference.</p>
+      <p class="footer-disclaimer">Disclaimer: These templates are for educational and technical architecture reference. Consult qualified legal counsel before signing.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
