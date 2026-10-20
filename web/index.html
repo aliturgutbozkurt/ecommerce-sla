@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme">
+<body>
   <!-- Background Glow FX -->
   <div class="glow-bg glow-1"></div>
   <div class="glow-bg glow-2"></div>
@@ -26,6 +26,10 @@
         </div>
       </div>
       <div class="header-actions">
+        <button id="themeToggleBtn" class="theme-btn" title="Temayı Değiştir (Açık/Koyu)">
+          <span class="theme-icon">🌙</span> <span class="theme-text">Koyu</span>
+        </button>
+
         <div class="lang-switch-wrapper">
           <button id="btnLangEn" class="lang-btn active" onclick="setLanguage('en')">🇬🇧 EN</button>
           <button id="btnLangTr" class="lang-btn" onclick="setLanguage('tr')">🇹🇷 TR</button>
